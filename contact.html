@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Bloom & Co. flower shop - Order flowers, inquire about arrangements, or visit our shop in Belfast.">
+    <meta name="author" content="Group 21 - COM109">
+    <title>Contact Us | Bloom & Co. Flowers</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">Bloom & Co.</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#flowers">Flowers</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Page Header -->
+        <section class="hero" style="height: 40vh;" aria-labelledby="contact-heading">
+            <div class="hero-content">
+                <h1 id="contact-heading">Contact Us</h1>
+                <p>Order flowers or ask us anything</p>
+            </div>
+        </section>
+        
+        <!-- Contact Form Section -->
+        <section class="section" aria-labelledby="form-heading">
+            <h2 id="form-heading">Place Your Order</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <form id="contactForm" class="contact-form" novalidate aria-describedby="form-instructions">
+                <p id="form-instructions" class="sr-only">All fields marked with an asterisk (*) are required.</p>
+                
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required aria-required="true" autocomplete="given-name" placeholder="Enter your first name">
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required aria-required="true" autocomplete="family-name" placeholder="Enter your last name">
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="your.email@example.com">
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required aria-required="true" autocomplete="tel" placeholder="028 1234 5678">
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="address">Delivery Address *</label>
+                    <input type="text" id="address" name="address" required aria-required="true" autocomplete="street-address" placeholder="123 High Street, Belfast">
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Postcode -->
+                <div class="form-group">
+                    <label for="postcode">Postcode *</label>
+                    <input type="text" id="postcode" name="postcode" required aria-required="true" autocomplete="postal-code" placeholder="BT1 1AA">
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Flower Selection -->
+                <div class="form-group">
+                    <label for="flowerType">Select Flower/Bouquet *</label>
+                    <select id="flowerType" name="flowerType" required aria-required="true">
+                        <option value="">Choose an option...</option>
+                        <option value="red-roses">Red Roses - £25.00</option>
+                        <option value="sunflowers">Sunflowers - £20.00</option>
+                        <option value="lilies">White Lilies - £30.00</option>
+                        <option value="tulips">Mixed Tulips - £18.00</option>
+                        <option value="mixed">Mixed Bouquet - £35.00</option>
+                        <option value="wedding">Wedding Arrangement - £75.00</option>
+                        <option value="sympathy">Sympathy Arrangement - £50.00</option>
+                    </select>
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Delivery Date -->
+                <div class="form-group">
+                    <label for="deliveryDate">Preferred Delivery Date</label>
+                    <input type="date" id="deliveryDate" name="deliveryDate">
+                </div>
+                
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message">Special Instructions / Message *</label>
+                    <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Enter any special instructions, card messages, or delivery preferences..."></textarea>
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Terms Checkbox -->
+                <div class="form-group">
+                    <label for="agreeTerms">
+                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required aria-required="true">
+                        I agree to the <a href="#" onclick="alert('Terms and Conditions would open here'); return false;">terms and conditions</a> *
+                    </label>
+                    <span class="error" role="alert"></span>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit">Submit Order</button>
+            </form>
+        </section>
+        
+        <!-- Contact Information -->
+        <section class="section" aria-labelledby="contact-info-heading">
+            <h2 id="contact-info-heading">Other Ways to Contact Us</h2>
+            
+            <div class="flower-grid">
+                <div class="flower-card">
+                    <div class="content" style="text-align: center;">
+                        <h3>📍 Visit Us</h3>
+                        <p>Bloom & Co.</p>
+                        <p>123 Flower Street</p>
+                        <p>Belfast, BT1 1AA</p>
+                        <p>Northern Ireland</p>
+                    </div>
+                </div>
+                
+                <div class="flower-card">
+                    <div class="content" style="text-align: center;">
+                        <h3>📞 Call Us</h3>
+                        <p>Phone: 028 9012 3456</p>
+                        <p>Mon-Sat: 9am - 6pm</p>
+                        <p>Sunday: 10am - 4pm</p>
+                    </div>
+                </div>
+                
+                <div class="flower-card">
+                    <div class="content" style="text-align: center;">
+                        <h3>✉️ Email Us</h3>
+                        <p>orders@bloomandco.com</p>
+                        <p>info@bloomandco.com</p>
+                        <p>We reply within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p>&copy; 2026 Bloom & Co. All rights reserved.</p>
+        <p>Designed for Ulster University COM109 Client Side Development</p>
+    </footer>
+    
+    <!-- External JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>
