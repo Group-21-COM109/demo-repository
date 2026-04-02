@@ -1,0 +1,240 @@
+/*--LIGHT MODE COLOURS--
+Pastel Yellow - #ffff80 / rgb(255 255 128)
+Light Yellow - #ffff66 / rgb(255 255 102)
+Main Yellow - #ffff45 / rgb(255 255 69)
+Bright Yellow - #ffff00 / rgb(255 255 0)
+Dark Yellow - #cca300 rgb(204 163 0)
+Extra Dark Yellow / Brownish - #665200 / rgb(102 82 0)
+
+Pastel Green - #ccff99 / rgb(204 255 153)
+Lime - #66ff33 / rgb(102 255 51)
+Light Green - #99ff33 / rgb(153 255 51)
+Light Blue-Green - #80ff80 / rgb(128 255 128)
+Main Green - #66cc00 / rgb(102 204 0)
+Dark Green - #356600 / rgb(53 102 0)
+Camo Green - #669900 / rgb(102 153 0)
+*/
+
+* {
+    font-weight: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing:border-box;
+}
+
+.border-light {
+    border: solid;
+    border-color: #000000;
+    border-width: 3px;
+    border-Radius: 0px; /* 5px - light curve ||| 12px - heavy curve */
+    padding: 2px;
+    margin-top: 5px;
+    margin-bottom: 11px;
+}
+
+.border-heavy {
+    border: solid;
+    border-color: #000000;
+    border-width: 6px;
+    border-Radius: 0px; /* 5px - light curve ||| 12px - heavy curve */
+    padding: 2px;
+    margin-top: 5px;
+    margin-bottom: 11px;
+}
+
+/* Header & Footer Config */
+.header { 
+    overflow: hidden;
+    background-color: #ffff80;
+    padding: 20px 10px;
+}
+
+.header p {
+    float: left;
+    background-color: #ffff45;
+    color: black;
+    text-align: center;
+    padding: 12px; 
+    font-size: 22px;
+    line-height: 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px #9c8400;
+}
+
+.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px; 
+    font-size: 22px;
+    line-height: 25px;
+    border-radius: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+    font-weight: medium;
+    text-decoration: none;
+}
+
+
+.header a:hover {
+    background-color: #d6d66a;
+}
+
+.header a.current {
+    background-color: #ffff00;
+    border: solid 1px #000000;
+}
+
+.header a.current:hover {
+    background-color: #ebeb00;
+}
+
+.header-links, .footer-right {
+    float: right;
+}
+
+#Screen_1_A {
+    display: block;
+}
+
+#Screen_1_B, #Screen_2, #Screen_3 {
+    display: none;
+}
+
+.blur {
+    filter: blur(2px);
+    opacity: 0.8;
+}
+
+.footer {
+    overflow: hidden;
+    background-color: #7ce759;
+    padding: 20px 10px;
+    justify-content: center;
+}
+
+.footer p {
+    float: left;
+    font-weight: bold;
+    background-color: #66cc00;
+    color: black;
+    text-align: center;
+    padding: 10px; 
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: medium;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #4b9600;
+    margin-left: 3px; 
+    margin-right: 3px;
+}
+
+.footer a.footer-link {
+    float: right;
+    color: black;
+    text-align: center;
+    margin-left: 1px;
+    margin-right: 2px;
+    padding: 12px; 
+    font-size: 22px;
+    line-height: 25px;
+    border-radius: 5px;
+    background-color: #62b70d;
+    border: solid #000000 1px;
+    font-weight: medium;
+    text-decoration: none;
+}
+
+.footer a.footer-link:hover {
+    background-color: #57a20b;
+}
+
+/* Slideshow Config */
+.slideshow-container {
+    clear: both;
+    max-width: 300px;
+    position: relative;
+    margin: auto;
+}
+
+.flowers_slides {
+    display: none;
+    position: relative;
+
+}
+
+.flowers_slides img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #000000;
+  opacity: 0.8;
+}
+
+.flowers_slides a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-weight: medium;
+    text-decoration: none;
+    line-height: 20px;
+    border: 1px solid black;
+    border-radius: 0px 0px 4px 4px;
+    background-color: rgb(142, 236, 49, 0.45);
+}
+
+.flowers_slides a:hover {
+    background-color: rgba(123, 203, 42, 0.45);
+}
+.index {
+    color: #000000;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    font-weight: bold;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
+}
+
+.active {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+

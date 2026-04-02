@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/Styling_Files/form_styles.css">
+<title></title>
+<script src="Script_Files/jquery-4.0.0.min.js"></script>
+<script src="Script_Files/form_script.js"></script>
+</head>
+<body>
+<div class="header">
+    <p>Bustling & Blooming Co.</p>
+    <div class="header-links">
+        <a href="#Index">Home</a>
+        <a class="current" href="#Form">Survey</a>
+        <a href="#Descripton">More</a>
+        <a href="#Misc">Misc</a>
+    </div>
+</div>
+<div id="Screen_1_A">
+    <p>Welcome to the form page! More content will be added to here later on.</p>
+    <button id="startForm">Begin the Survey</button>
+</div>
+<div id="Screen_1_B">
+    <p>Welcome to my form, when there is something here to interact with, you'll see!</p>
+</div>
+<div class="footer">
+    <p>Bustling & Blooming Co.</p>
+    <p>© Copyright Bustling & Blooming 2026</p>
+    <div class="slideshow-container">
+        <div class="flowers_slides fade">
+            <div class="index">1/3</div>
+            <img src="Styling_Files/Media/Images/Flowers_1.png" style="width:300px; height:300px">
+            <a href="#Index">Home Page</a>
+        </div>
+        <div class="flowers_slides fade">
+            <div class="index">2/3</div>
+            <img src="Styling_Files/Media/Images/Flowers_2.png" style="width:300px; height:300px">
+            <a href="#Description">More Information...</a>
+        </div>
+        <div class="flowers_slides fade">
+            <div class="index">3/3</div>
+            <img src="Styling_Files/Media/Images/Flowers_3.png" style="width:300px; height:300px">
+            <a href="#Misc">Miscellaneous</a>
+        </div>
+
+        <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
+        <a class="next" onclick="nextSlide(1)">&#10095;</a>
+    </div>
+    <a class="footer-link" href="#Index">Home</a>
+    <a class="footer-link" href="#Description">More</a>
+    <a class="footer-link" href="#Misc">Misc</a>
+</div>
+</body>
+</html>
