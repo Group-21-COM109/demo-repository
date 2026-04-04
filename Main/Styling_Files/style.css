@@ -1,16 +1,11 @@
 /* interactive page styling */
 /* flower shop com109 project */
 
-/* body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #f9f9f9;
     color: #333;
-}
-
-h1 {
-    text-align: center;
 }
 
 h2 {
@@ -43,11 +38,23 @@ h2 {
     background-color: #fff;
     border-left: 3px solid #66cc00;
     margin-bottom: 10px;
+    display: none;
 }
 
 /* gallery stuff */
 .gallery-section {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.thumb-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
 .gallery-thumb {
@@ -55,7 +62,6 @@ h2 {
     height: 100px;
     object-fit: cover;
     cursor: pointer;
-    margin-right: 10px;
     border: 3px solid #000000;
     border-radius: 10px;
     opacity: 0.7;
@@ -66,11 +72,74 @@ h2 {
     border-color: #66cc00;
 }
 
+.fav-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #999;
+}
+
+.fav-btn:hover {
+    background-color: #ffcccc;
+}
+
+.fav-btn.favorited {
+    color: #ff0000;
+}
+
+.main-display {
+    text-align: center;
+}
+
 .main-display img {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     border: 5px solid #000000;
     border-radius: 20px;
+}
+
+#flower-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* flower of the day stuff */
+.flower-of-day {
+    background-color: #fff;
+    padding: 20px;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fod-image img {
+    border-radius: 50%;
+    border: 4px solid #66cc00;
+}
+
+.fod-info h3 {
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.fod-info p {
+    margin: 5px 0;
+}
+
+.fod-price {
+    font-weight: bold;
+    color: #66cc00;
 }
 
 /* calculator stuff */
@@ -80,6 +149,7 @@ h2 {
     border: 3px solid #000000;
     border-radius: 10px;
     display: inline-block;
+    margin-bottom: 20px;
 }
 
 .calculator-section input[type="checkbox"] {
@@ -88,11 +158,12 @@ h2 {
 }
 
 .total-price {
-    font-weight: 500;
     font-size: 24px;
+    font-weight: 500;
     color: #ffff45;
     background-color: #000000;
     padding: 10px;
     display: inline-block;
     border-radius: 10px;
+    margin: 10px 0;
 }

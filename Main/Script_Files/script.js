@@ -1,30 +1,34 @@
 // FAQ 
-// When user clicks a question the answer shows up 
+// when user clicks a question the answer shows up 
 $(".faq-question").click(function(){
-    // toggle the answer to show or hide 
     $(this).next(".faq-answer").slideToggle();
 });
+
 // Image gallery
 // when you click a thumbnail it shows in the main picture
 $(".gallery-thumb").click(function(){
-// get pictures from the thumbnail
-var picture = $(this).attr("src");
-
-// put it in the main display
-$("#main-pic").attr("src",picture);
-
+    var picture = $(this).attr("src");
+    var altText = $(this).attr("alt");
+    $("#main-pic").attr("src",picture);
+    $("#flower-name").text(altText);
 });
+
+// Favorites button
+function toggleFav(btn){
+    btn.classList.toggle("favorited");
+    if(btn.classList.contains("favorited")){
+        btn.style.color = "#ff0000";
+    } else {
+        btn.style.color = "#999";
+    }
+}
+
 // Price Calculator
 // adds up the selected flowers
-
 $(".flower-select").click(function(){
-    var total=0;
-    // loop through all check flowers
+    var total = 0;
     $(".flower-select:checked").each(function(){
-        total= total + parseFloat($(this).val());
+        total = total + parseFloat($(this).val());
     });
-
-    // display the total
     $("#bouquet-total").text("£" + total);
-
 });
