@@ -12,7 +12,7 @@
     <div class="header-links">
         <a href="#Index">Home</a>
         <a class="current" href="#Form">Survey</a>
-        <a href="#Descripton">More</a>
+        <a href="../HTML/interactive.html">More</a>
         <a href="#Misc">Misc</a>
     </div>
 </div>
@@ -21,7 +21,119 @@
     <button id="startForm">Begin the Survey</button>
 </div>
 <div id="Screen_1_B">
-    <p>Welcome to my form, when there is something here to interact with, you'll see!</p>
+    <form action="" method="post" autocomplete="off">
+        <div class="center">
+                <h1 class="text-center">B&B Flora Survey</h1>
+
+                <div class="steps">
+                    <span class="step" id="step-1">1</span>
+                    <span class="step" id="step-2">2</span>
+                    <span class="step" id="step-3">3</span>
+                    <span class="step" id="step-4">4</span>
+                </div>
+
+                <div class="part" id="part-1">
+                    <p>(1) What is your name?</p>
+                    <input type="text" placeholder="First Name" name="firstname">
+                    <p class="ErrorMsg" id="nameErrorMsg"></p>
+                    
+                    <p>(2) What is your email address?</p>
+                    <input type="text" placeholder="Email" name="email">
+                    <p class="ErrorMsg" id="emailErrorMsg"></p>
+
+                    <p>(3) What is your phone number?</p>
+                    <input type="text" placeholder="Phone Number" name="phoneNumber">
+                    <p class="ErrorMsg" id="phoneErrorMsg"></p>
+
+                    <div class="index-button-wrapper">
+                        <div class="index-button" onclick="run(1,2)">Next</div>
+                    </div>
+                </div>
+
+                <div class="part" id="part-2">
+                    <p>(4) How did you first find out about our company?</p>
+                    <input type="radio" id="WoM" name="discovery_method">
+                    <label for="WoM">Word-of-Mouth</label><br>
+                    <input type="radio" id="Ads" name="discovery_method">
+                    <label for="Ads">Advertisements</label><br>
+                    <input type="radio" id="Recommendation" name="discovery_method">
+                    <label for="Recommendation">It was a recommendation</label><br>
+                    <input type="radio" id="Other" name="discovery_method">
+                    <label for="Other">Other</label><br>
+                    <p class="ErrorMsg" id="discErrorMsg"></p>
+                    
+                    <p>(5) Do you intend on buying flowers for yourself, or someone else?</p>
+                    <input type="radio" id="self" name="target_buyer">
+                    <label for="self">Myself</label><br>
+                    <input type="radio" id="friend" name="target_buyer">
+                    <label for="friend">A friend</label><br>
+                    <input type="radio" id="family" name="target_buyer">
+                    <label for="family">A family member</label><br>
+                    <input type="radio" id="colleague" name="target_buyer">
+                    <label for="colleague">A colleague</label><br>
+                    <input type="radio" id="general" name="target_buyer">
+                    <label for="general">I intend to buy the as a general gift</label><br>
+                    <p class="ErrorMsg" id="targetErrorMsg"></p>
+
+                    <div class="index-button-wrapper">
+                        <div class="index-button" onclick="run(2,1)">Previous</div>
+                        <div class="index-button" onclick="run(2,3)">Next</div>
+                    </div>
+                </div>
+
+                <div class="part" id="part-3">
+                    <p>(6) Please choose between one of these colours to base the bouquet on!</p>
+
+                    <select name="colours" id="colours">
+                        <option value="unknown">I'm unsure</option>
+                        <option value="surprise">Surprise me!</option>
+                        <option value="multicoloured">Give me something multicoloured</option>
+                        <optgroup label="Specific Colours">
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="green">Green</option>
+                            <option value="orange">Orange</option>
+                            <option value="purple">Purple</option>
+                            <option value="pink">Pink</option>
+                            <option value="brown">Brown</option>
+                            <option value="white">White</option>
+                            <option value="gray">Gray</option>
+                            <option value="black">Black</option>
+                        </optgroup>
+                    </select>
+
+                    <p>(7) How much do you find yourself willing to pay (in £) for flowers?</p>
+                    <input type="number" placeholder="0.00" name="payAmount" step="0.01" min="0">
+                    <p class="ErrorMsg" id="payErrorMsg"></p>
+
+                    <div class="index-button-wrapper">
+                        <div class="index-button" onclick="run(3,2)">Previous</div>
+                        <div class="index-button" onclick="run(3,4)">Next</div>
+                    </div>
+                </div>
+
+                <div class="part" id="part-4">
+                    <p>We are currently running a promotion for a 25% off coupon!
+                        <br>Enter a number from 1-10 below to play!</p>
+                    <input type="number" placeholder="1" name="couponNum">
+                    <p class="ErrorMsg" id="couponErrorMsg"></p>
+
+                    <div class="index-button-wrapper">
+                        <div class="index-button" onclick="run(4,3)">Previous</div>
+                        <div class="index-button" onclick="run(4,5)">Next</div>
+                    </div>
+                </div>
+
+                <div class="part" id="part-5">
+                    <div class="index-button-wrapper">
+                        <div class="index-button" onclick="run(5,4)">Previous</div>
+                        <div class="index-button" onclick="run(5,1)">Page 1</div>
+                        <button class="index-button" type="submit" style="background: #09f7c3">Submit</button>
+                    </div>
+                </div>
+        </div>
+    </form>
 </div>
 <div class="footer">
     <p>Bustling & Blooming Co.</p>
@@ -35,7 +147,7 @@
         <div class="flowers_slides fade">
             <div class="index">2/3</div>
             <img src="../Styling_Files/Media/Images/Flowers_2.png" style="width:300px; height:300px">
-            <a href="#Description">More Information...</a>
+            <a href="../HTML/interactive.html">More Information...</a>
         </div>
         <div class="flowers_slides fade">
             <div class="index">3/3</div>
@@ -47,7 +159,7 @@
         <a class="next" onclick="nextSlide(1)">&#10095;</a>
     </div>
     <a class="footer-link" href="#Index">Home</a>
-    <a class="footer-link" href="#Description">More</a>
+    <a class="footer-link" href="../HTML/interactive.html">More</a>
     <a class="footer-link" href="#Misc">Misc</a>
 </div>
 </body>

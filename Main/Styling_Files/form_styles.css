@@ -21,11 +21,16 @@ Camo Green - #669900 / rgb(102 153 0)
     box-sizing:border-box;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .border-light {
+    display: inline;
     border: solid;
     border-color: #000000;
     border-width: 3px;
-    border-Radius: 0px; /* 5px - light curve ||| 12px - heavy curve */
+    border-Radius: 5px; /* 5px - light curve ||| 12px - heavy curve */
     padding: 2px;
     margin-top: 5px;
     margin-bottom: 11px;
@@ -39,6 +44,11 @@ Camo Green - #669900 / rgb(102 153 0)
     padding: 2px;
     margin-top: 5px;
     margin-bottom: 11px;
+}
+
+#Screen_1_A, #Screen_1_B {
+    border: 5px solid #3d3d3d;
+    padding: 20px;
 }
 
 /* Header & Footer Config */
@@ -238,3 +248,130 @@ Camo Green - #669900 / rgb(102 153 0)
   to {opacity: 1}
 }
 
+/* Form Configuration */
+
+#Screen_1_B {
+    background: #fff4c6;
+}
+
+form {
+    background: #ffffff;
+    margin: 100px auto;
+    width: 75%;
+    padding: 15px 40px 40px 40px;
+}
+
+.part {
+    width: 100%;
+}
+.part p {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    border: 1px solid #aaaaaa;
+    box-sizing: border-box;
+
+}
+
+.index-button-wrapper {
+    display: flex;
+}
+.index-button {
+    margin: 20px 15px 0 0;
+    background: #34cf6a;
+    color: #fff;
+    padding: 7px 17px;
+    border: 3px solid #34cf6a;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.index-button:hover {
+    opacity: 0.8;
+    border: 3px solid #2aa856;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.container {
+    border: solid 3px #3d3d3d;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    background: #80ff80;
+    color: white;
+    border-radius: 50%;
+    margin: 0 2px;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+label {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+    font-size: 17px;
+    margin-top: 4px;
+}
+
+input[type="radio"] {
+    appearance: none;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked {
+    background-color: transparent;
+}
+
+input[type="radio"]:checked:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #8fff7e;
+}
+
+.ErrorMsg {
+    size: 75%;
+    color: rgb(179, 16, 16);
+    padding-bottom: 15px;
+}
