@@ -15,6 +15,41 @@ h2 {
     margin-top: 30px;
 }
 
+/* header styles */
+.header {
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e91e63;
+    margin: 0;
+}
+
+.header-links a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.header-links a:hover {
+    background-color: #f0f0f0;
+}
+
+.header-links a.current {
+    background-color: #ffff45;
+    color: #000;
+}
+
 /* FAQ stuff */
 .faq-question {
     background-color: #ffff45;
@@ -166,4 +201,213 @@ h2 {
     display: inline-block;
     border-radius: 10px;
     margin: 10px 0;
+}
+
+/* newsletter signup styles */
+.newsletter-section {
+    background-color: #fff;
+    padding: 20px;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.newsletter-section input {
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.newsletter-section button {
+    padding: 10px 20px;
+    background-color: #66cc00;
+    color: #fff;
+    border: 3px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.newsletter-section button:hover {
+    background-color: #ffff45;
+    color: #000;
+}
+
+#signup-msg {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* dark mode toggle button */
+.theme-btn {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #ffff45;
+    border: 3px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 100;
+}
+
+/* dark mode styles */
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #ffffff;
+}
+
+body.dark-mode h2 {
+    border-bottom-color: #0066ff;
+}
+
+body.dark-mode .faq-question {
+    background-color: #0066ff;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.dark-mode .faq-question:hover {
+    background-color: #cc33ff;
+}
+
+body.dark-mode .faq-answer {
+    background-color: #16213e;
+    color: #ffffff;
+    border-left-color: #cc33ff;
+}
+
+body.dark-mode .calculator-section,
+body.dark-mode .flower-of-day,
+body.dark-mode .newsletter-section {
+    background-color: #16213e;
+    color: #ffffff;
+}
+
+body.dark-mode .fod-price {
+    color: #cc33ff;
+}
+
+body.dark-mode .gallery-thumb {
+    border-color: #ffffff;
+}
+
+body.dark-mode .fav-btn {
+    background-color: #333;
+    border-color: #ffffff;
+}
+
+body.dark-mode .total-price {
+    background-color: #0066ff;
+    color: #ffffff;
+}
+
+body.dark-mode .header {
+    background-color: #16213e;
+}
+
+body.dark-mode .header p {
+    color: #0066ff;
+}
+
+body.dark-mode .header-links a {
+    color: #ffffff;
+}
+
+body.dark-mode .header-links a:hover {
+    background-color: #333;
+}
+
+body.dark-mode .header-links a.current {
+    background-color: #0066ff;
+    color: #ffffff;
+}
+
+body.dark-mode .footer {
+    background-color: #0a0a14;
+}
+
+body.dark-mode .theme-btn {
+    background: #0066ff;
+    color: #fff;
+    border-color: #fff;
+}
+
+body.dark-mode .theme-btn:hover {
+    background: #cc33ff;
+}
+
+/* footer styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.slideshow-container {
+    position: relative;
+    margin: 15px auto;
+}
+
+.flowers-slides {
+    display: none;
+}
+
+.flowers-slides img {
+    border-radius: 10px;
+    border: 3px solid #fff;
+}
+
+.index {
+    font-size: 12px;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.footer-link {
+    color: #ccc;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: #fff;
 }
