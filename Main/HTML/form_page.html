@@ -11,14 +11,24 @@
     <p>Bustling & Blooming Co.</p>
     <div class="header-links">
         <a href="#Index">Home</a>
-        <a class="current" href="#Form">Survey</a>
-        <a href="../HTML/interactive.html">More</a>
-        <a href="#Misc">Misc</a>
+        <a class="current" href="form_page.html">Survey</a>
+        <a href="interactive.html">Interactive</a>
+        <a href="#More">More</a>
     </div>
 </div>
 <div id="Screen_1_A">
-    <p>Welcome to the form page! More content will be added to here later on.</p>
-    <button id="startForm">Begin the Survey</button>
+    <div id="S1A_Display">
+            <h1 class="text-center">B&B Flora Survey</h1>
+            <div id="S1A_Content">
+                <p class="text-center">Welcome to the B&B interactive form page! Here, you can progress through our tried & tested interactive form
+                which can help reveal some flowers that may be tailoured to you! Simply click the "Begin" button to begin our survey!</p>
+                <p style="font-size: 50%">By opting into our form, you agree to allow your data to be assessed and displayed on this web page.<br>
+                All submitted data can be deleted manually by clicking the "Delete Data" button, or by calling our support center.</p>
+                <button id="begin-button">Begin</button>
+                <button id="delete-data-button">Delete Data</button>
+                <button id="form-stats">View Personal Stats</button>
+            </div>
+    </div>
 </div>
 <div id="Screen_1_B">
     <form action="" method="post" autocomplete="off">
@@ -135,31 +145,28 @@
         </div>
     </form>
 </div>
+        
 <div class="footer">
     <p>Bustling & Blooming Co.</p>
     <p>© Copyright Bustling & Blooming 2026</p>
     <div class="slideshow-container">
         <div class="flowers_slides fade">
             <div class="index">1/3</div>
-            <img src="../Styling_Files/Media/Images/Flowers_1.png" style="width:300px; height:300px">
-            <a href="#Index">Home Page</a>
+            <img src="../Styling_Files/Media/Images/Flowers_1.png" alt="Red Flora">
         </div>
         <div class="flowers_slides fade">
             <div class="index">2/3</div>
-            <img src="../Styling_Files/Media/Images/Flowers_2.png" style="width:300px; height:300px">
-            <a href="../HTML/interactive.html">More Information...</a>
+            <img src="../Styling_Files/Media/Images/Flowers_2.png" alt="Pink Flora">
         </div>
         <div class="flowers_slides fade">
             <div class="index">3/3</div>
-            <img src="../Styling_Files/Media/Images/Flowers_3.png" style="width:300px; height:300px">
-            <a href="#Misc">Miscellaneous</a>
+            <img src="../Styling_Files/Media/Images/Flowers_3.png" alt="Multicoloured Flora Assortment">
         </div>
-
         <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
         <a class="next" onclick="nextSlide(1)">&#10095;</a>
     </div>
     <a class="footer-link" href="#Index">Home</a>
-    <a class="footer-link" href="../HTML/interactive.html">More</a>
+    <a class="footer-link" href="interactive.html">Interactive</a>
     <a class="footer-link" href="#Misc">Misc</a>
 </div>
 </body>

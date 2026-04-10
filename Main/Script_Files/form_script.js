@@ -1,5 +1,5 @@
 let switching = false;
-let slideIndex = 1;
+var slideIndex = 1;
 
 const phonePattern = /^[0-9]{7,15}$/;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -8,11 +8,17 @@ $(document).ready(function() {
     $(".flowers_slides").eq(slideIndex - 1).show();
     $(".part").css("display","none");
     $("#part-1").css("display","block");
-    $("#startForm").click(function(){ 
+    $("#begin-button").click(function(){ 
         var Screen1A = document.getElementById("Screen_1_A")
         var Screen1B = document.getElementById("Screen_1_B")
         switchScreen(Screen1A, Screen1B)
     });
+    $("#delete-data-button").click(function(){
+        alert("Data submission not handled at this time; therefore no data can be deleted yet.")
+    })
+    $("#form-stats").click(function(){
+        alert("Data submission not handled at this time; therefore no data can be displayed yet.")
+    })
     $("form").on("keydown", function(e) { // Prevents user from accidentally entering the entire form prematurely using Enter Key
         if (e.key === "Enter") {
             e.preventDefault();
