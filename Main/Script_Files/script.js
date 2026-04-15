@@ -1,79 +1,89 @@
-// FAQ 
-// when user clicks a question the answer shows up 
-$(".faq-question").click(function(){
-    $(this).next(".faq-answer").slideToggle();
-});
+const themeToggle = document.getElementById('themeToggle');
+const toggleIcon  = themeToggle.querySelector('.toggle-icon');
+const toggleLabel = themeToggle.querySelector('.toggle-label');
+const html        = document.documentElement;
 
-// Image gallery
-// when you click a thumbnail it shows in the main picture
-$(".gallery-thumb").click(function(){
-    var picture = $(this).attr("src");
-    var altText = $(this).attr("alt");
-    $("#main-pic").attr("src",picture);
-    $("#flower-name").text(altText);
-});
+function applyTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem('bb-theme', theme);
 
-// Favorites button
-function toggleFav(btn){
-    btn.classList.toggle("favorited");
-    if(btn.classList.contains("favorited")){
-        btn.style.color = "#ff0000";
-    } else {
-        btn.style.color = "#999";
-    }
+  if (theme === 'dark') {
+    toggleIcon.textContent  = '☀️';
+    toggleLabel.textContent = 'Light Mode';
+  } else {
+    toggleIcon.textContent  = '🌙';
+    toggleLabel.textContent = 'Dark Mode';
+  }
 }
 
-// Price Calculator
-// adds up the selected flowers
-$(".flower-select").click(function(){
-    var total = 0;
-    $(".flower-select:checked").each(function(){
-        total = total + parseFloat($(this).val());
+const savedTheme = localStorage.getItem('bb-theme') || 'light';
+applyTheme(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  applyTheme(current === 'light' ? 'dark' : 'light');
+});
+
+
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+
+const uploadInputs = document.querySelectorAll('.upload-input');
+
+uploadInputs.forEach(input => {
+  input.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const previewId = input.getAttribute('data-target');
+    const areaId    = input.getAttribute('data-area');
+    const preview   = document.getElementById(previewId);
+    const area      = document.getElementById(areaId);
+    const label     = area.querySelector('.upload-label');
+
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      preview.src = evt.target.result;
+      preview.classList.remove('hidden');
+      label.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = Array.from(timelineItems).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 120);
+        observer.unobserve(entry.target);
+      }
     });
-    $("#bouquet-total").text("£" + total);
+  },
+  { threshold: 0.15 }
+);
+
+timelineItems.forEach(item => observer.observe(item));
+
+
+const timelineCards = document.querySelectorAll('.timeline-card');
+
+timelineCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const isExpanded = card.classList.toggle('expanded');
+    card.style.borderWidth = isExpanded ? '5px' : '';
+  });
 });
-
-// Dark mode toggle
-$("#darkToggle").click(function(){
-    $("body").toggleClass("dark-mode");
-    if($("body").hasClass("dark-mode")){
-        $(this).text("Light mode");
-    } else {
-        $(this).text("Dark mode");
-    }
-});
-
-// Newsletter signup 
-$("#signup-btn").click(function(){
-    var email = $("#email-input").val();
-    if(email === ""){
-        $("#signup-msg").text("Please enter your email address");
-        $("#signup-msg").css("color","red");
-    } else if(email.includes("@") && email.includes(".")){
-        $("#signup-msg").text("Thanks for signing up! Check your inbox soon");
-        $("#signup-msg").css("color","green");
-        $("#email-input").val("");
-    } else {
-        $("#signup-msg").text("Please enter a valid email address");
-        $("#signup-msg").css("color","red");
-    }
-});
-
-// slideshow
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function nextSlide(n) {
-  showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("flowers-slides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex-1].style.display = "block";
-}
