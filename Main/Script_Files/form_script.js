@@ -1,32 +1,50 @@
 let switching = false;
 var slideIndex = 1;
 
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const phonePattern = /^[0-9]{7,15}$/;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 $(document).ready(function() {
+    if (localStorage.getItem("firstname")) {
+        alert(`Hello, ${localStorage.getItem("firstname")}!`);
+    };
+    if (localStorage.getItem("favColour")) {
+        alert(`Hello, ${localStorage.getItem("favColour")}!`);
+    };
+    // Image Slideshow Setup
     $(".flowers_slides").eq(slideIndex - 1).show();
+
+    // Form Handling
     $(".part").css("display","none");
     $("#part-1").css("display","block");
     $("#begin-button").click(function(){ 
-        var Screen1A = document.getElementById("Screen_1_A")
-        var Screen1B = document.getElementById("Screen_1_B")
+        var Screen1A = document.getElementById("Screen_1_A");
+        var Screen1B = document.getElementById("Screen_1_B");
+        //var Screen2 = document.getElemenyById("Screen2")
         switchScreen(Screen1A, Screen1B)
     });
+
     $("#delete-data-button").click(function(){
-        alert("Data submission not handled at this time; therefore no data can be deleted yet.")
-    })
+        if ((!localStorage.getItem("firstname")) && !(localStorage.getItem("favColour"))) {
+            alert("No saved data to delete! Try completing our survey first.");
+        } else {
+            localStorage.clear();
+            alert("Data successfully deleted!");
+        };
+    });
+
     $("#form-stats").click(function(){
         alert("Data submission not handled at this time; therefore no data can be displayed yet.")
-    })
+    });
+
     $("form").on("keydown", function(e) { // Prevents user from accidentally entering the entire form prematurely using Enter Key
         if (e.key === "Enter") {
             e.preventDefault();
         }
-    });
-    $("form").on("submit", function(e) { // TEMPORARY - Prevents form submission until handling is implemented
-        e.preventDefault();
-        alert("Submission not handled at this time.");
     });
 })
 
@@ -72,16 +90,46 @@ function showSlides(n) { // Takes in parameter n, then moves n slides
 
 // Form Handling
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     const phoneInput = document.querySelector("input[name='phone']");
 
     if (phoneInput) {
         phoneInput.addEventListener("input", function() {
             this.value = this.value.replace(/\s+/g, '');  // Remove spaces on numerical entry
         });
-    }
-});
+    };
 
+    document.getElementById("floraForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        localStorage.clear();
+
+        const formData = new FormData(this);
+
+        // Email, Phone Number, Discovery Method and Target Buyer fields are irrelevant to the data I wish to display and thus 
+        // are not handled.
+
+        const name = formData.get("firstname");
+        let colourChoice = formData.get("colours");
+        const payAmount = formData.get("payAmount");
+        const raffleNum = formData.get("couponNum");
+
+        if (colourChoice === "unknown" || colourChoice === "surprise") {
+            const colours = [
+                "red","blue","yellow","green","orange",
+                "purple","pink","brown","white","gray","black"
+            ];
+            let i = randomInt(0,10);
+            colourChoice = colours[i];
+        }
+
+        localStorage.setItem("firstname", name);
+        localStorage.setItem("favColour", colourChoice);
+
+        alert(name + "" + colourChoice + "" + payAmount + "" + raffleNum);
+        //switchScreen(Screen1B, Screen2)
+
+    });
+})
 function run(hideSection, showSection) { // Checks if all inputs are valid, then moves from Part X to Part Y, or visa versa
     // Core Error Message Elements
     var nameErrorMsg = document.getElementById("nameErrorMsg");
