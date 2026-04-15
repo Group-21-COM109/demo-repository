@@ -10,12 +10,17 @@
 <div class="header">
     <p>Bustling & Blooming Co.</p>
     <div class="header-links">
-        <a href="#Index">Home</a>
+        <a href="home_page.html">Home</a>
         <a class="current" href="form_page.html">Survey</a>
+    </div>
+    <div class="header-links">
         <a href="interactive.html">Interactive</a>
         <a href="#More">More</a>
     </div>
 </div>
+
+<button class="theme-btn" id="darkToggle">Dark Mode</button>
+
 <div id="Screen_1_A">
     <div id="S1A_Display">
             <h1 class="text-center">B&B Flora Survey</h1>
@@ -139,13 +144,78 @@
                     <div class="index-button-wrapper">
                         <div class="index-button" onclick="run(5,4)">Previous</div>
                         <div class="index-button" onclick="run(5,1)">Page 1</div>
-                        <button class="index-button" type="submit" style="background: #09f7c3">Submit</button>
+                        <button class="index-button" type="submit" id="submit-button">Submit</button>
                     </div>
                 </div>
         </div>
     </form>
 </div>
-        
+
+<div id="Screen_2">
+    <div id="S2_Display">
+            <div id="S2_Header">
+                <h1 class="text-center">Your Data</h1>
+            </div>
+            <div id="S2_Content">
+                <p class="text-center" id="username_showcase"></p>
+                <div class="slideshow-showcase">
+                    <div class="showcase_slides fade">
+                        <h3 class="text-center" id="colour_heading">Our Quick Pick for You!</h3>
+                        <p id="colour_text"></p>
+                        <p id="colour_extra"></p>
+                        <div class="center-items">
+                            <img class="colours" id="red" src="..\Styling_Files\Media\Images\red_flora.png" alt="Red Flora">
+                            <img class="colours" id="blue" src="..\Styling_Files\Media\Images\blue_flora.png" alt="Blue Flora">
+                            <img class="colours" id="yellow" src="..\Styling_Files\Media\Images\yellow_flora.png" alt="Yellow Flora">
+                            <img class="colours" id="green" src="..\Styling_Files\Media\Images\green_flora.png" alt="Green Flora">
+                            <img class="colours" id="orange" src="..\Styling_Files\Media\Images\orange_flora.png" alt="Orange Flora">
+                            <img class="colours" id="purple" src="..\Styling_Files\Media\Images\purple_flora.png" alt="Purple Flora">
+                            <img class="colours" id="pink" src="..\Styling_Files\Media\Images\pink_flora.png" alt="Pink Flora">
+                            <img class="colours" id="brown" src="..\Styling_Files\Media\Images\brown_flora.png" alt="Brown Flora">
+                            <img class="colours" id="white" src="..\Styling_Files\Media\Images\white_dasies.png" alt="White Flora">
+                            <img class="colours" id="gray" src="..\Styling_Files\Media\Images\gray_flora.png" alt="Gray Flora">
+                            <img class="colours" id="black" src="..\Styling_Files\Media\Images\black_flora.png" alt="Black Flora">
+                            <img class="colours" id="multicoloured" src="..\Styling_Files\Media\Images\flora_basket.png" alt="Multicoloured Flora">
+                        </div>
+                    </div>
+                    <div class="showcase_slides fade">
+                        <h3 class="text-center" id="pay_heading"></h3>
+                        <ul>
+                            <li id="pay_amount"></li>
+                            <li id="pay_text"></li>
+                            <li id="pay_result"></li>
+                        </ul>
+                        <div class="center-items">
+                            <img class="small_img" id="ran_img_1" src="..\Styling_Files\Media\Images\Flowers_1.png" alt="Red Flora">
+                            <img class="small_img" id="ran_img_2" src="..\Styling_Files\Media\Images\Flowers_2.png" alt="Purple Flora">
+                            <img class="small_img" id="ran_img_3" src="..\Styling_Files\Media\Images\Flowers_3.png" alt="Multicoloured Flora">
+                            <img class="small_img" id="ran_img_4" src="..\Styling_Files\Media\Images\Flowers_4.png" alt="Orange Flora">
+                        </div>
+                    </div>
+                    <div class="showcase_slides fade">
+                        <h3 class="text-center" id="raffle_results"></h3>
+                        <ul>
+                            <li id="raffle_num"></li>
+                            <li id="raffle_text"></li>
+                            <li id="raffle_extra"></li>
+                        </ul>
+                        <div class="center-items">
+                            <img class="small_img" id="ran_img_5" src="..\Styling_Files\Media\Images\Flowers_1.png" alt="Red Flora">
+                            <img class="small_img" id="ran_img_6" src="..\Styling_Files\Media\Images\Flowers_2.png" alt="Purple Flora">
+                            <img class="small_img" id="ran_img_7" src="..\Styling_Files\Media\Images\Flowers_3.png" alt="Multicoloured Flora">
+                            <img class="small_img" id="ran_img_8" src="..\Styling_Files\Media\Images\Flowers_4.png" alt="Orange Flora">
+                        </div>
+                    </div>
+                    <a class="prev" onclick="nextSlide(-1,'Stats')">&#10094;</a>
+                    <a class="next" onclick="nextSlide(1,'Stats')">&#10095;</a>
+                </div>
+                <button id="return-button">Return</button> 
+                <button id="opt-out-button">Opt Out</button> 
+                <button id="restart-form">Restart the Form</button> 
+            </div>
+    </div>
+</div>
+
 <div class="footer">
     <p>Bustling & Blooming Co.</p>
     <p>© Copyright Bustling & Blooming 2026</p>
@@ -162,10 +232,10 @@
             <div class="index">3/3</div>
             <img src="../Styling_Files/Media/Images/Flowers_3.png" alt="Multicoloured Flora Assortment">
         </div>
-        <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
-        <a class="next" onclick="nextSlide(1)">&#10095;</a>
+        <a class="prev" onclick="nextSlide(-1,'Footer')">&#10094;</a>
+        <a class="next" onclick="nextSlide(1,'Footer')">&#10095;</a>
     </div>
-    <a class="footer-link" href="#Index">Home</a>
+    <a class="footer-link" href="home_page.html">Home</a>
     <a class="footer-link" href="interactive.html">Interactive</a>
     <a class="footer-link" href="#Misc">Misc</a>
 </div>
