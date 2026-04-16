@@ -40,18 +40,14 @@ themeToggle.addEventListener('click', () => {
 });
 */
 
-function nextSlide(n, type) { // Takes in movement count parameter, then calls showSlides and moves n slides. 
-  showSlides(slideIndex += n, type);
+function nextSlide(n) { 
+  showSlides(slideIndex += n);
 }
 
-function showSlides(n, type) { // Takes in parameter n, then moves n slides. Type distinguishes which slide set to move
+function showSlides(n) {
     let i;
     let slides;
-    if (type === "Stats") {
-        slides = document.getElementsByClassName("showcase_slides");
-    } else if (type === "Footer") {
-        slides = document.getElementsByClassName("flowers_slides");
-    }
+    slides = document.getElementsByClassName("flowers_slides");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
