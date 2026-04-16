@@ -11,12 +11,57 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    background-image: url("Media/Images/Bustling & blooming (2).png");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #333;
+    min-height: 100vh;
 }
 
-/* header styles */
-.header {
-    background-color: #fff;
+/* banner styles */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.banner-text h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    font-family: 'Georgia', serif;
+}
+
+.banner-text h2 {
+    font-size: 1.8rem;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+}
+
+/* nav bar */
+.nav {
+    background-color: #ffff80;
     padding: 20px 40px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
@@ -27,38 +72,41 @@ body {
     z-index: 1000;
 }
 
-.header p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #e91e63;
-    margin: 0;
-}
-
-.header-links a {
-    color: #333;
+.nav a {
     text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    color: black;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
 }
 
-.header-links a:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
+.nav a:hover {
+    transform: scale(1.1);
+    display: inline-block;
 }
 
-.header-links a.current {
+.nav a.current {
     background: linear-gradient(135deg, #ffff45, #66cc00);
     color: #000;
     font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.logo-img {
+    width: 150px;
+    height: auto;
+    margin-right: 15px;
 }
 
 /* main content wrapper */
 .main-content {
     max-width: 1000px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 h2 {
@@ -68,6 +116,9 @@ h2 {
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 1.8rem;
+    background-color: rgba(255,255,255,0.9);
+    padding: 15px;
+    border-radius: 10px;
 }
 
 /* FAQ stuff */
@@ -308,24 +359,20 @@ h2 {
 
 /* dark mode toggle button */
 .theme-btn {
-    position: fixed;
-    top: 90px;
-    right: 20px;
-    padding: 12px 20px;
+    padding: 8px 15px;
     background: linear-gradient(135deg, #ffff45, #ffff66);
-    border: 3px solid #000;
-    border-radius: 25px;
+    border: 2px solid #000;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: bold;
-    z-index: 999;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: #000;
 }
 
 .theme-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* footer styles */
@@ -413,34 +460,46 @@ h2 {
 /* DARK MODE STYLES */
 /* ===================== */
 
+/* dark mode banner */
+body.dark-mode .banner-img {
+    filter: brightness(0.5);
+}
+
+/* Dark Mode Styles */
 body.dark-mode {
     background-color: #1a1a2e;
+    background-image: url("Media/Images/Bustling & blooming (2).png");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #ffffff;
 }
 
+body.dark-mode .main-content {
+    background-color: rgba(30, 30, 50, 0.95);
+}
+
 body.dark-mode h2 {
+    background-color: rgba(30, 30, 50, 0.9);
     border-bottom-color: #0066ff;
     color: #fff;
 }
 
-body.dark-mode .header {
-    background-color: #16213e;
+body.dark-mode .nav {
+    background-color: #333;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-body.dark-mode .header p {
-    color: #0066ff;
-}
-
-body.dark-mode .header-links a {
+body.dark-mode .nav a {
     color: #fff;
 }
 
-body.dark-mode .header-links a:hover {
-    background-color: #333;
+body.dark-mode .nav a:hover {
+    background-color: #555;
 }
 
-body.dark-mode .header-links a.current {
+body.dark-mode .nav a.current {
     background: linear-gradient(135deg, #0066ff, #003399);
     color: #fff;
 }
@@ -514,23 +573,114 @@ body.dark-mode .slideshow-container img {
 }
 
 /* responsive design */
+
+/* nav responsive */
 @media (max-width: 768px) {
-    .header {
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .nav .logo-img {
+        width: 100px;
+    }
+    
+    .nav a {
+        font-size: 0.9rem;
+    }
+    
+    .banner {
+        height: 300px;
+    }
+    
+    .banner-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .banner-text h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 250px;
+    }
+    
+    .banner-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-text h2 {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet styles (768px - 1024px) */
+@media (max-width: 1024px) {
+    .nav {
+        padding: 15px 20px;
+    }
+    
+    .nav a {
+        padding: 8px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .gallery-thumb {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .main-display img {
+        max-width: 400px;
+    }
+    
+    .flower-of-day {
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .fod-image img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Mobile styles (below 768px) */
+@media (max-width: 768px) {
+    .nav {
         flex-direction: column;
         padding: 15px;
     }
     
-    .header-links {
-        margin-top: 15px;
+    .nav .logo-img {
+        width: 120px;
+        height: auto;
     }
     
-    .header-links a {
+    .nav a {
         padding: 8px 12px;
         font-size: 0.9rem;
+        margin: 3px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
     }
     
     .thumbnails {
         justify-content: center;
+    }
+    
+    .gallery-thumb {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .main-display img {
+        max-width: 300px;
     }
     
     .flower-of-day {
@@ -538,18 +688,111 @@ body.dark-mode .slideshow-container img {
         text-align: center;
     }
     
+    .fod-image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .fod-info h3 {
+        font-size: 1.2rem;
+    }
+    
     .calculator-section,
     .newsletter-section {
         width: 100%;
+        padding: 20px;
+    }
+    
+    .calculator-section input[type="checkbox"] {
+        transform: scale(1.1);
+    }
+    
+    .total-price {
+        font-size: 22px;
+        padding: 12px 20px;
     }
     
     .newsletter-section input {
         width: 100%;
         margin-bottom: 10px;
+        box-sizing: border-box;
     }
     
     .theme-btn {
-        top: auto;
-        bottom: 20px;
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+    
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+    
+    .slideshow-container {
+        max-width: 280px;
+    }
+    
+    .flowers-slides img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .footer {
+        padding: 30px 15px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-link {
+        margin: 5px;
+    }
+}
+
+/* Small mobile styles (below 480px) */
+@media (max-width: 480px) {
+    .nav .logo-img {
+        width: 100px;
+    }
+    
+    .nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .gallery-thumb {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .main-display img {
+        max-width: 250px;
+    }
+    
+    #flower-name {
+        font-size: 1.1rem;
+    }
+    
+    .fod-price {
+        font-size: 1.1rem;
+    }
+    
+    .total-price {
+        font-size: 20px;
+    }
+    
+    .newsletter-section button {
+        width: 100%;
+    }
+    
+    .flowers-slides img {
+        width: 200px;
+        height: 200px;
     }
 }

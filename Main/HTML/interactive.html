@@ -8,19 +8,27 @@
 </head>
 <body>
 
-<!-- Matching header and footer-->
-<div class="header">
-    <p>Bustling & Blooming Co.</p>
-    <div class="header-links">
-        <a href="#Index">Home</a>
-        <a href="form_page.html">Survey</a>
-        <a class="current" href="interactive.html">Interactive</a>
-        <a href="#More">More</a>
+<!---NAV BAR--->
+<nav class="nav">
+    <img src="../Styling_Files/Media/Images/Bustling & blooming (1).png" alt="Brand Logo" class="logo-img">
+    <a href="home_page.html">Home</a>
+    <a href="form_page.html">Survey</a>
+    <a class="current" href="interactive.html">Interactive</a>
+    <a href="About-us.html">About Us</a>
+    <button class="theme-btn" id="darkToggle">Dark Mode</button>
+</nav>
+
+<!-- BANNER -->
+<div class="banner">
+    <img src="../Styling_Files/Media/Images/pexels-larissafarber-14318568.jpg" alt="banner" class="banner-img">
+
+    <div class="banner-text">
+        <h1>Bustling & Blooming Flower Co.</h1>
+        <h2>Fresh flowers delivered daily</h2>
     </div>
 </div>
 
-<!-- Dark mode toggle-->
-<button class="theme-btn" id="darkToggle">Dark Mode</button>
+<div class="main-content">
 
 <!-- FAQ SECTION -->
 <h2>Frequently Asked Questions</h2>
@@ -101,29 +109,31 @@
     <p id="signup-msg"></p>
 </div>
 
+</div><!-- End main-content -->
+
 <!--FOOTER-->
 <div class="footer">
     <p>Bustling & Blooming Co.</p>
-    <p>© Copyright Bustling & Blooming 2026</p>
+    <p>&copy; Copyright Bustling & Blooming 2026</p>
     <div class="slideshow-container">
         <div class="flowers-slides fade">
             <div class="index">1/3</div>
-            <img src="../Styling_Files/Media/Images/roses.png" alt="Flower arrangement 1">
+            <img src="../Styling_Files/Media/Images/Flowers_1.png" alt="Flower arrangement 1">
         </div>
         <div class="flowers-slides fade">
             <div class="index">2/3</div>
-            <img src="../Styling_Files/Media/Images/tulips.png" alt="Flower arrangement 2">
+            <img src="../Styling_Files/Media/Images/Flowers_2.png" alt="Flower arrangement 2">
         </div>
         <div class="flowers-slides fade">
             <div class="index">3/3</div>
-            <img src="../Styling_Files/Media/Images/white_lilies.png" alt="Flower arrangement 3">
+            <img src="../Styling_Files/Media/Images/Flowers_3.png" alt="Flower arrangement 3">
         </div>
         <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
         <a class="next" onclick="nextSlide(1)">&#10095;</a>
     </div>
-    <a class="footer-link" href="#Index">Home</a>
+    <a class="footer-link" href="home_page.html">Home</a>
     <a class="footer-link" href="form_page.html">Survey</a>
-    <a class="footer-link" href="interactive.html">Interactive</a>
+    <a class="footer-link" href="About-us.html">About Us</a>
 </div>
 
 </body>
