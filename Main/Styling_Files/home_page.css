@@ -10,11 +10,34 @@ body {
     border: 3px solid black;
     border-radius: 10px;
 }
+/* dark mode toggle button */
+.theme-btn {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    padding: 12px 20px;
+    background: #ffff80;
+    border: 3px solid #000;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 999;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.theme-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+/* banner */
 .banner {
     position: relative;
     height: 400px;
     overflow: hidden;
-    background-color:#ffff80
+    background-color:#ffff80;
+
 }
 
 .banner-img {
@@ -45,6 +68,7 @@ body {
     width: auto;
 
 }
+/* blooms section*/
 .blooms-wrapper {
   background: #fff8e6; /* soft warm cream */
   padding: 60px 0;
@@ -65,8 +89,9 @@ body {
 .text-block {
   max-width: 300px;
   flex-shrink: 0;
+  font-size: large;
 }
-
+/*carousel*/
 .carousel {
   position: relative;
   width: 300px;
@@ -118,9 +143,7 @@ button {
     border-radius: 20px;
     cursor: pointer;
 }
-/* PHOTOS */ 
-
-
+ /*nav bar*/
 .nav {
     background-color: #ffff80;
     padding: 20px 40px;
@@ -145,7 +168,7 @@ button {
     transform: scale(1.1);
     display: inline-block;
 }
-
+/* view more button*/
 .view-more-container {
     display: flex;
     justify-content: center;
@@ -153,7 +176,7 @@ button {
 
 .view-more {
     padding: 12px 30px;
-    background:#ffff80;
+    background:#ccff99;
     color: black;
     border: none;
     border-radius: 25px;
@@ -164,11 +187,12 @@ button {
 }
 
 .view-more:hover {
-    background:  #ffff80;
+    background: #ccff99;
     color: black ;
     transform: scale(1.05);
     text-align: center;
 }
+/*divider*/
 .section-divider {
   width: 100%;
   height: 2px;
@@ -176,6 +200,7 @@ button {
   margin: 40px 0;
   border-radius: 2px;
 }
+/*why us cards*/
 .why-us {
   text-align: center;
   margin: 60px auto;
@@ -184,10 +209,170 @@ button {
 .why-grid {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   margin-top: 20px;
 }
 
 .why-item {
-  max-width: 250px;
+  width: 250px;
+  min-height: 180px;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-width: 3px;
+  border-radius: 8px;
+  background-color: #ccff99;
+  transition: transform 0.2s ease;
 }
+.why-item:hover {
+  transform: scale (2);
+}
+
+.why-text {
+  display: none;
+  margin-top: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+}
+.cards-container {
+    display: flex;
+    justify-content: center;  
+    align-items: center;       
+    gap: 80px;                 
+}
+/*about us button*/
+.learn-more-container {
+    display: flex;
+    justify-content: center;
+}
+
+.learn-more {
+    padding: 12px 30px;
+    background:#ccff99;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.learn-more:hover {
+    background: #ccff99;
+    color: black ;
+    transform: scale(1.05);
+    text-align: center;
+}
+/*time cards*/
+.opening-times {
+    text-align: center;
+    margin: 60px auto;
+
+}
+.times-card {
+    width: 300px;
+    margin: 0 auto;
+    padding: 25px;
+    background: #ccff99;
+    border: 3px black;
+    border-radius: 10px;
+    line-height: 1.6;
+    transition: transform 0.2s ease;
+
+}
+.times-card:hover {
+    transform: scale (1.05);
+}
+.current-day {
+    font-weight: 900;
+    color: #000;
+    text-decoration: underline;
+}
+
+/* 🌙 DARK MODE */
+body.dark-mode {
+    background-color: #111;
+    color: #f5f5f5;
+
+}
+/* navbar */
+body.dark-mode .nav {
+    background-color: #16213e;
+}
+
+body.dark-mode .nav a {
+    color: #fff;
+}
+
+/* banner */
+body.dark-mode .banner {
+    background-color: #333;
+}
+
+body.dark-mode .banner-text {
+    color: #fff;
+}
+
+/* blooms section */
+body.dark-mode .blooms-wrapper {
+    background: #222;
+}
+
+/* why-us cards */
+body.dark-mode .why-item {
+    background-color: #333;
+    border-color: #fff;
+}
+
+body.dark-mode .why-text {
+    color: #ddd;
+}
+
+/* buttons */
+body.dark-mode .theme-btn {
+    background: #333;
+    color: #fff;
+    border-color: #fff;
+}
+
+body.dark-mode .view-more {
+    background: #444;
+    color: #fff;
+}
+body.dark-mode .times-card {
+    background:#333;
+    color: #fff;
+    border-color: #fff;
+}
+body.dark-mode .current-day {
+    color: #fff;
+}
+body.dark-mode .footer {
+  background-color: #16213e;
+
+/*logo*/
+}
+body.dark-mode .logo-img {
+    content: url("../Images/Bustling & blooming (2).png");
+}
+/*banner*/
+body.dark-mode .banner-img {
+  content: url("../Images/pexels-lilartsy-3040705.jpg");
+}
+
+body.dark-mode .section-divider {
+  background-color: #fff;
+}
+
+/*footer*/
+.footer {
+    background-color: #ffff80;
+    padding: 20px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 60px;
+}
+
