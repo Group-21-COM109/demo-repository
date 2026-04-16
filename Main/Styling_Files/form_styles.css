@@ -348,6 +348,13 @@ img {
     font-weight: bold;
 }
 
+.logo-img {
+    height: 100px;
+    width: auto;
+    border: 3px solid #000000;
+    border-radius: 4px;
+}
+
 .blur {
     filter: blur(2px);
     opacity: 0.8;
@@ -783,3 +790,7 @@ body.dark-mode .small_img {
     border-color: #666;
 }
 
+body.dark-mode .logo-img {
+    content: url("Media/Images/Bustling & blooming (2).png");
+    border: 3px solid #414141;
+}

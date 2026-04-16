@@ -50,7 +50,7 @@ $(document).ready(function() {
     });
 
     $("#opt-out-button").click(function() {
-        const canDelete = confirm("Are you sure you wish to delete all current data?<br>\
+        const canDelete = confirm("Are you sure you wish to delete all current data?\
             Doing so will return you to the main screen.")
         if (canDelete) {
             localStorage.clear();

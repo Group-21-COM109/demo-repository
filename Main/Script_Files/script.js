@@ -1,8 +1,23 @@
-const themeToggle = document.getElementById('themeToggle');
+/*const themeToggle = document.getElementById('themeToggle');
 const toggleIcon  = themeToggle.querySelector('.toggle-icon');
-const toggleLabel = themeToggle.querySelector('.toggle-label');
+const toggleLabel = themeToggle.querySelector('.toggle-label');*/
 const html        = document.documentElement;
+var slideIndex = 1;
 
+$("#darkToggle").click(function(){
+        $("body").toggleClass("dark-mode");
+        if($("body").hasClass("dark-mode")){
+            $(this).text("Light mode");
+        } else {
+            $(this).text("Dark mode");
+        };
+});
+
+$(document).ready(function() {
+  $(".flowers_slides").eq(slideIndex - 1).show();
+});
+
+/*
 function applyTheme(theme) {
   html.setAttribute('data-theme', theme);
   localStorage.setItem('bb-theme', theme);
@@ -23,7 +38,27 @@ themeToggle.addEventListener('click', () => {
   const current = html.getAttribute('data-theme');
   applyTheme(current === 'light' ? 'dark' : 'light');
 });
+*/
 
+function nextSlide(n, type) { // Takes in movement count parameter, then calls showSlides and moves n slides. 
+  showSlides(slideIndex += n, type);
+}
+
+function showSlides(n, type) { // Takes in parameter n, then moves n slides. Type distinguishes which slide set to move
+    let i;
+    let slides;
+    if (type === "Stats") {
+        slides = document.getElementsByClassName("showcase_slides");
+    } else if (type === "Footer") {
+        slides = document.getElementsByClassName("flowers_slides");
+    }
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+}
 
 const navLinks = document.querySelectorAll('.nav-link');
 
