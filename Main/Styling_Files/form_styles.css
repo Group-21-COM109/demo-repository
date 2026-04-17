@@ -436,9 +436,6 @@ img {
     animation-duration: 1.5s;
 }
 
-/* Test Footer Styles */
-
-
 .footer-link {
     color: #ccc;
     text-decoration: none;
@@ -793,4 +790,14 @@ body.dark-mode .small_img {
 body.dark-mode .logo-img {
     content: url("Media/Images/Bustling & blooming (2).png");
     border: 3px solid #414141;
+}
+
+body.dark-mode .theme-btn {
+    background: linear-gradient(135deg, #0066ff, #003399);
+    color: #fff;
+    border-color: #fff;
+}
+
+body.dark-mode .theme-btn:hover {
+    background: linear-gradient(135deg, #cc33ff, #990099);
 }

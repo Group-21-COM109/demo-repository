@@ -1,6 +1,10 @@
 // Wait for page to load
+var slideIndex = 1;
+
 document.addEventListener("DOMContentLoaded", function() {
     
+    $(".flowers_slides").eq(slideIndex - 1).show();
+
     // FAQ - when user clicks a question the answer shows up 
     var faqQuestions = document.querySelectorAll(".faq-question");
     faqQuestions.forEach(function(question) {
