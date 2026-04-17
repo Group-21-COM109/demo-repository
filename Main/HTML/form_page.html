@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../Styling_Files/form_styles.css">
 <title></title>
 <script src="../Script_Files/jquery-4.0.0.min.js"></script>
 <script src="../Script_Files/form_script.js"></script>
 </head>
 <body>
+<!-- Universal header {Used across all four web pages} -->
 <div class="header">
     <img src="../Styling_Files/Media/Images/Bustling & blooming (1).png" alt="Brand Logo" class="logo-img">
     <p>Bustling & Blooming Co.</p>
+    <!-- Links are split into two of the same class, allowing for two pairs of columns rather than one long column; takes up less vertical space -->
     <div class="header-links">
         <a href="home_page.html">Home</a>
         <a class="current" href="form_page.html">Survey</a>
@@ -22,6 +26,7 @@
 
 <button class="theme-btn" id="darkToggle">Dark Mode</button>
 
+<!-- Screen 1-A: Entry / initial screen, allows user to start form, delete data or view any saved data -->
 <div id="Screen_1_A">
     <div id="S1A_Display">
             <h1 class="text-center">B&B Flora Survey</h1>
@@ -30,17 +35,20 @@
                 which can help reveal some flowers that may be tailoured to you! Simply click the "Begin" button to begin our survey!</p>
                 <p style="font-size: 50%">By opting into our form, you agree to allow your data to be assessed and displayed on this web page.<br>
                 All submitted data can be deleted manually by clicking the "Delete Data" button, or by calling our support center.</p>
-                <button id="begin-button">Begin</button>
-                <button id="delete-data-button">Delete Data</button>
+                <button id="begin-button">Begin</button> 
+                <button id="delete-data-button">Delete Data</button> 
                 <button id="form-stats">View Personal Stats</button>
             </div>
     </div>
 </div>
+
+<!-- Screen 1-B: Form -->
 <div id="Screen_1_B">
     <form action="" id="floraForm" autocomplete="off">
         <div class="center">
                 <h1 class="text-center">B&B Flora Survey</h1>
 
+                <!-- Visual representation of how much of the form has been completed -->
                 <div class="steps">
                     <span class="step" id="step-1">1</span>
                     <span class="step" id="step-2">2</span>
@@ -49,16 +57,19 @@
                 </div>
 
                 <div class="part" id="part-1">
+                    <!-- Name Entry - Saved -->
                     <p>(1) What is your name?</p>
-                    <input type="text" placeholder="First Name" name="firstname">
+                    <input type="text" placeholder="First Name" name="firstname" id="name">
                     <p class="ErrorMsg" id="nameErrorMsg"></p>
                     
+                    <!-- Email Entry - Not Saved -->
                     <p>(2) What is your email address?</p>
-                    <input type="text" placeholder="Email" name="email">
+                    <input type="text" placeholder="Email" name="email" id="email">
                     <p class="ErrorMsg" id="emailErrorMsg"></p>
 
+                    <!-- Phone Entry - Not Saved -->
                     <p>(3) What is your phone number?</p>
-                    <input type="text" placeholder="Phone Number" name="phoneNumber">
+                    <input type="text" placeholder="Phone Number" name="phoneNumber" id="phone">
                     <p class="ErrorMsg" id="phoneErrorMsg"></p>
 
                     <div class="index-button-wrapper">
@@ -66,7 +77,9 @@
                     </div>
                 </div>
 
+                <!-- Form Screen (Part) 2 -->
                 <div class="part" id="part-2">
+                    <!-- Radio Input One - Not Saved -->
                     <p>(4) How did you first find out about our company?</p>
                     <input type="radio" id="WoM" name="discovery_method">
                     <label for="WoM">Word-of-Mouth</label><br>
@@ -78,6 +91,7 @@
                     <label for="Other">Other</label><br>
                     <p class="ErrorMsg" id="discErrorMsg"></p>
                     
+                    <!-- Radio Input Two - Not Saved -->
                     <p>(5) Do you intend on buying flowers for yourself, or someone else?</p>
                     <input type="radio" id="self" name="target_buyer">
                     <label for="self">Myself</label><br>
@@ -97,13 +111,15 @@
                     </div>
                 </div>
 
+                <!-- Form Screen (Part) 3 -->
                 <div class="part" id="part-3">
                     <p>(6) Please choose between one of these colours to base the bouquet on!</p>
 
+                    <!-- Colour Select Input - Saved -->
                     <select name="colours" id="colours">
-                        <option value="unknown">I'm unsure</option>
+                        <option value="unknown">Unsure</option>
                         <option value="surprise">Surprise me!</option>
-                        <option value="multicoloured">Give me something multicoloured</option>
+                        <option value="multicoloured">Multicoloured bouquet</option>
                         <optgroup label="Specific Colours">
                             <option value="red">Red</option>
                             <option value="blue">Blue</option>
@@ -120,7 +136,8 @@
                     </select>
 
                     <p>(7) How much do you find yourself willing to pay (in £) for flowers?</p>
-                    <input type="number" placeholder="0.00" name="payAmount" step="0.01" min="0">
+                    <!-- Desired Cost Input - Saved -->
+                    <input type="number" placeholder="0.00" name="payAmount" id="pay" step="0.01" min="0">
                     <p class="ErrorMsg" id="payErrorMsg"></p>
 
                     <div class="index-button-wrapper">
@@ -129,10 +146,12 @@
                     </div>
                 </div>
 
+                <!-- Form Screen (Part) 4 -->
                 <div class="part" id="part-4">
+                    <!-- Coupon Raffle Entry - Saved -->
                     <p>We are currently running a promotion for a 25% off coupon!
                         <br>Enter a number from 1-10 below to play!</p>
-                    <input type="number" placeholder="1" name="couponNum">
+                    <input type="number" placeholder="1" name="couponNum" id="coupNum">
                     <p class="ErrorMsg" id="couponErrorMsg"></p>
 
                     <div class="index-button-wrapper">
@@ -141,6 +160,7 @@
                     </div>
                 </div>
 
+                <!-- Form Screen (Part) 5; final screen, allows user to return to Screen 1 or submit -->
                 <div class="part" id="part-5">
                     <div class="index-button-wrapper">
                         <div class="index-button" onclick="run(5,4)">Previous</div>
@@ -152,6 +172,7 @@
     </form>
 </div>
 
+<!-- Screen 2: Form Results / Data Viewing -->
 <div id="Screen_2">
     <div id="S2_Display">
             <div id="S2_Header">
@@ -164,74 +185,80 @@
                         <h3 class="text-center" id="colour_heading">Our Quick Pick for You!</h3>
                         <p id="colour_text"></p>
                         <p id="colour_extra"></p>
+                        <!-- Contains 12 images, 1 image is shown determinant on the user's inputs -->
                         <div class="center-items">
-                            <img class="colours" id="red" src="..\Styling_Files\Media\Images\red_flora.png" alt="Red Flora">
+                            <img class="colours" id="red" src="..\Styling_Files\Media\Images\red_flower.png" alt="Red Flora">
                             <img class="colours" id="blue" src="..\Styling_Files\Media\Images\blue_flora.png" alt="Blue Flora">
-                            <img class="colours" id="yellow" src="..\Styling_Files\Media\Images\yellow_flora.png" alt="Yellow Flora">
+                            <img class="colours" id="yellow" src="..\Styling_Files\Media\Images\yellow_flower.png" alt="Yellow Flora">
                             <img class="colours" id="green" src="..\Styling_Files\Media\Images\green_flora.png" alt="Green Flora">
-                            <img class="colours" id="orange" src="..\Styling_Files\Media\Images\orange_flora.png" alt="Orange Flora">
+                            <img class="colours" id="orange" src="..\Styling_Files\Media\Images\orange_flower.png" alt="Orange Flora">
                             <img class="colours" id="purple" src="..\Styling_Files\Media\Images\purple_flora.png" alt="Purple Flora">
                             <img class="colours" id="pink" src="..\Styling_Files\Media\Images\pink_flora.png" alt="Pink Flora">
                             <img class="colours" id="brown" src="..\Styling_Files\Media\Images\brown_flora.png" alt="Brown Flora">
-                            <img class="colours" id="white" src="..\Styling_Files\Media\Images\white_dasies.png" alt="White Flora">
-                            <img class="colours" id="gray" src="..\Styling_Files\Media\Images\gray_flora.png" alt="Gray Flora">
-                            <img class="colours" id="black" src="..\Styling_Files\Media\Images\black_flora.png" alt="Black Flora">
-                            <img class="colours" id="multicoloured" src="..\Styling_Files\Media\Images\flora_basket.png" alt="Multicoloured Flora">
+                            <img class="colours" id="white" src="..\Styling_Files\Media\Images\white_flower.png" alt="White Flora">
+                            <img class="colours" id="gray" src="..\Styling_Files\Media\Images\gray_flower.png" alt="Gray Flora">
+                            <img class="colours" id="black" src="..\Styling_Files\Media\Images\black_flower.png" alt="Black Flora">
+                            <img class="colours" id="multicoloured" src="..\Styling_Files\Media\Images\flowers_bouquet.png" alt="Multicoloured Flora">
                         </div>
                     </div>
                     <div class="showcase_slides fade">
                         <h3 class="text-center" id="pay_heading"></h3>
+                        <!-- HTML Text is determinant based on the user's inputs, inserted via jQuery -->
                         <ul>
                             <li id="pay_amount"></li>
                             <li id="pay_text"></li>
                             <li id="pay_result"></li>
                         </ul>
+                        <!-- One out of four images randomly shows at the bottom of the data screen -->
                         <div class="center-items">
-                            <img class="small_img" id="ran_img_1" src="..\Styling_Files\Media\Images\Flowers_1.png" alt="Red Flora">
-                            <img class="small_img" id="ran_img_2" src="..\Styling_Files\Media\Images\Flowers_2.png" alt="Purple Flora">
-                            <img class="small_img" id="ran_img_3" src="..\Styling_Files\Media\Images\Flowers_3.png" alt="Multicoloured Flora">
-                            <img class="small_img" id="ran_img_4" src="..\Styling_Files\Media\Images\Flowers_4.png" alt="Orange Flora">
+                            <img class="small_img" id="ran_img_1" src="..\Styling_Files\Media\Images\Flowers_A.png" alt="Red Flora">
+                            <img class="small_img" id="ran_img_2" src="..\Styling_Files\Media\Images\Flowers_B.png" alt="Purple Flora">
+                            <img class="small_img" id="ran_img_3" src="..\Styling_Files\Media\Images\Flowers_C.png" alt="Multicoloured Flora">
+                            <img class="small_img" id="ran_img_4" src="..\Styling_Files\Media\Images\Flowers_D.png" alt="Orange Flora">
                         </div>
                     </div>
                     <div class="showcase_slides fade">
                         <h3 class="text-center" id="raffle_results"></h3>
+                        <!-- HTML Text is determinant based on the user's inputs, inserted via jQuery -->
                         <ul>
                             <li id="raffle_num"></li>
                             <li id="raffle_text"></li>
                             <li id="raffle_extra"></li>
                         </ul>
+                        <!-- One out of four images randomly shows at the bottom of the data screen -->
                         <div class="center-items">
-                            <img class="small_img" id="ran_img_5" src="..\Styling_Files\Media\Images\Flowers_1.png" alt="Red Flora">
-                            <img class="small_img" id="ran_img_6" src="..\Styling_Files\Media\Images\Flowers_2.png" alt="Purple Flora">
-                            <img class="small_img" id="ran_img_7" src="..\Styling_Files\Media\Images\Flowers_3.png" alt="Multicoloured Flora">
-                            <img class="small_img" id="ran_img_8" src="..\Styling_Files\Media\Images\Flowers_4.png" alt="Orange Flora">
+                            <img class="small_img" id="ran_img_5" src="..\Styling_Files\Media\Images\Flowers_A.png" alt="Red Flora">
+                            <img class="small_img" id="ran_img_6" src="..\Styling_Files\Media\Images\Flowers_B.png" alt="Purple Flora">
+                            <img class="small_img" id="ran_img_7" src="..\Styling_Files\Media\Images\Flowers_C.png" alt="Multicoloured Flora">
+                            <img class="small_img" id="ran_img_8" src="..\Styling_Files\Media\Images\Flowers_D.png" alt="Orange Flora">
                         </div>
                     </div>
                     <a class="prev" onclick="nextSlide(-1,'Stats')">&#10094;</a>
                     <a class="next" onclick="nextSlide(1,'Stats')">&#10095;</a>
                 </div>
-                <button id="return-button">Return</button> 
-                <button id="opt-out-button">Opt Out</button> 
-                <button id="restart-form">Restart the Form</button> 
+                <button id="return-button">Return</button> <!-- Returns to Screen 1-A -->
+                <button id="opt-out-button">Opt Out</button> <!-- Deletes all data -->
+                <button id="restart-form">Restart the Form</button> <!-- Deletes all data, restarts form -->
             </div>
     </div>
 </div>
 
+<!-- Universal Footer {Used across all four web pages} -->
 <div class="footer">
     <p>Bustling & Blooming Co.</p>
     <p>© Copyright Bustling & Blooming 2026</p>
     <div class="slideshow-container">
         <div class="flowers_slides fade">
             <div class="index">1/3</div>
-            <img src="../Styling_Files/Media/Images/Flowers_1.png" alt="Red Flora">
+            <img src="../Styling_Files/Media/Images/flowers_A.png" alt="Red Flora">
         </div>
         <div class="flowers_slides fade">
             <div class="index">2/3</div>
-            <img src="../Styling_Files/Media/Images/Flowers_2.png" alt="Pink Flora">
+            <img src="../Styling_Files/Media/Images/flowers_B.png" alt="Pink Flora">
         </div>
         <div class="flowers_slides fade">
             <div class="index">3/3</div>
-            <img src="../Styling_Files/Media/Images/Flowers_3.png" alt="Multicoloured Flora Assortment">
+            <img src="../Styling_Files/Media/Images/flowers_C.png" alt="Multicoloured Flora Assortment">
         </div>
         <a class="prev" onclick="nextSlide(-1,'Footer')">&#10094;</a>
         <a class="next" onclick="nextSlide(1,'Footer')">&#10095;</a>
