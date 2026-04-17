@@ -56,24 +56,48 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Newsletter signup 
+    // Newsletter signup with enhanced validation
     var signupBtn = document.getElementById("signup-btn");
     if (signupBtn) {
         signupBtn.addEventListener("click", function(){
             var emailInput = document.getElementById("email-input");
             var signupMsg = document.getElementById("signup-msg");
-            var email = emailInput.value;
+            var email = emailInput.value.trim();
             
+            // Reset styles
+            emailInput.style.borderColor = "#000";
+            emailInput.style.borderWidth = "3px";
+            
+            // Validation checks
             if (email === "") {
                 signupMsg.textContent = "Please enter your email address";
                 signupMsg.style.color = "red";
-            } else if (email.includes("@") && email.includes(".")) {
+                emailInput.style.borderColor = "red";
+            } else if (email.length < 5) {
+                signupMsg.textContent = "Email is too short";
+                signupMsg.style.color = "red";
+                emailInput.style.borderColor = "red";
+            } else if (email.indexOf(" ") !== -1) {
+                signupMsg.textContent = "Email cannot contain spaces";
+                signupMsg.style.color = "red";
+                emailInput.style.borderColor = "red";
+            } else if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+                signupMsg.textContent = "Please enter a valid email (include @ and .)";
+                signupMsg.style.color = "red";
+                emailInput.style.borderColor = "red";
+            } else if (email.indexOf("@") === 0 || email.indexOf("@") === email.length - 1) {
+                signupMsg.textContent = "@ symbol cannot be at start or end";
+                signupMsg.style.color = "red";
+                emailInput.style.borderColor = "red";
+            } else if (email.indexOf(".") === -1 || email.indexOf(".") < email.indexOf("@")) {
+                signupMsg.textContent = "Please enter a valid email";
+                signupMsg.style.color = "red";
+                emailInput.style.borderColor = "red";
+            } else {
                 signupMsg.textContent = "Thanks for signing up! Check your inbox soon.";
                 signupMsg.style.color = "green";
+                emailInput.style.borderColor = "green";
                 emailInput.value = "";
-            } else {
-                signupMsg.textContent = "Please enter a valid email address";
-                signupMsg.style.color = "red";
             }
         });
     }
