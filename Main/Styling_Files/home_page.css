@@ -1,22 +1,21 @@
+/* 
+SIDENOTE: Due to issues with GitHub on Caoimhe's laptop, I (Oran) uploaded some of Caoimhe's code that she 
+compiled. Thus, any areas of this code marked as being added by me were only done so because Caoimhe couldn't access the GitHub.
+*/
+
 body {
     font-family: Arial, sans-serif;
     font-weight: 300;
 }
 
-.h1 {
-    text-align: center;
-} 
-.border-light {
-    border: 3px solid black;
-    border-radius: 10px;
-}
 /* dark mode toggle button */
 .theme-btn {
     position: fixed;
-    top: 90px;
+    top: auto;
+    bottom: 20px;
     right: 20px;
     padding: 12px 20px;
-    background: #ffff80;
+    background: linear-gradient(135deg, #ffff45, #ffff66);
     border: 3px solid #000;
     border-radius: 25px;
     cursor: pointer;
@@ -66,15 +65,10 @@ body {
 .logo-img {
     height: 100px;
     width: auto;
+    border: 3px solid black;
 
 }
 /* blooms section*/
-.blooms-wrapper {
-  background: #fff8e6; /* soft warm cream */
-  padding: 60px 0;
-}
-
-
 .four-block-section{
   display: flex;
   justify-content: center;
@@ -83,7 +77,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 0;
-  
+ 
 }
 
 .text-block {
@@ -92,12 +86,24 @@ body {
   font-size: large;
 }
 /*carousel*/
+/*ensure layout changes appropriately*/
+
+@media (max-width: 768px) {
+  .four-block-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+   
+  }}
+
+
 .carousel {
   position: relative;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   overflow: hidden;
   flex-shrink: 0;
- 
 }
 
 .carousel-track {
@@ -116,7 +122,7 @@ body {
 }
 
 /* ARROWS */
-.carousel .prev, 
+.carousel .prev,
 .carousel .next {
   position: absolute;
   top: 50%;
@@ -132,49 +138,96 @@ body {
 
 .carousel .prev { left: 10px; }
 .carousel .next { right: 10px; }
-
-
-
-/* BUTTON */
-button {
-    padding: 10px 20px;
-    border: none;
-    background: pink;
-    border-radius: 20px;
+/*FAV BTN*/
+.fav-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
+.fav-btn:hover {
+    background-color: #ffcccc;
+    transform: scale(1.1);
+}
+
+.fav-btn.favorited {
+    color: #ff0000;
+    background-color: #ffe6e6;
+}
+
  /*nav bar*/
-.nav {
-    background-color: #ffff80;
-    padding: 20px 40px;
+.header {
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
+    padding: 10px 20px;
+    gap: 10px;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-
-.nav a {
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        padding: 8px 12px;
+    }
+}
+ .header p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e91e63;
+    margin: 0;
+}
+.header-links a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    color: #333;
     text-decoration: none;
-    color: black;
-    font-weight: 500;
-    transition: 0.3s;
-    display: inline-block;
+    padding: 10px 20px;
+    margin: 3px 5px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 }
 
-.nav a:hover {
-    transform: scale(1.1);
-    display: inline-block;
+.header-links a:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
 }
-/* view more button*/
-.view-more-container {
+ 
+.header-links a.current {
+    background: linear-gradient(135deg, #ffff45, #66cc00);
+    color: #000;
+    font-weight: bold;
+}
+ 
+.blur {
+    filter: blur(2px);
+    opacity: 0.8;
+}
+ 
+/*buttons*/
+.view-more-container, .learn-more-container {
     display: flex;
     justify-content: center;
 }
 
-.view-more {
+.view-more, .learn-more{
     padding: 12px 30px;
     background:#ccff99;
     color: black;
@@ -186,7 +239,7 @@ button {
     text-align: center;
 }
 
-.view-more:hover {
+.view-more:hover, .learn-more:hover {
     background: #ccff99;
     color: black ;
     transform: scale(1.05);
@@ -225,8 +278,9 @@ button {
   background-color: #ccff99;
   transition: transform 0.2s ease;
 }
-.why-item:hover {
-  transform: scale (2);
+/*hover-effects*/
+.why-item:hover, .review-card:hover{
+  transform: scale(1.05);
 }
 
 .why-text {
@@ -236,35 +290,37 @@ button {
   line-height: 1.5;
   color: #444;
 }
-.cards-container {
-    display: flex;
-    justify-content: center;  
-    align-items: center;       
-    gap: 80px;                 
-}
-/*about us button*/
-.learn-more-container {
-    display: flex;
-    justify-content: center;
+
+.reviews {
+  text-align: center;
+  padding: 60px 20px;
 }
 
-.learn-more {
-    padding: 12px 30px;
-    background:#ccff99;
-    color: black;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: center;
+.reviews h2 {
+  margin-bottom: 40px;
+}
+/* container */
+.reviews-container, .cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.learn-more:hover {
-    background: #ccff99;
-    color: black ;
-    transform: scale(1.05);
-    text-align: center;
+/* individual cards */
+.review-card {
+  background: #ccff99;
+  border: 3px solid #000;
+  border-radius: 15px;
+  padding: 25px;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.review-card p {
+  margin-bottom: 15px;
 }
 /*time cards*/
 .opening-times {
@@ -277,14 +333,14 @@ button {
     margin: 0 auto;
     padding: 25px;
     background: #ccff99;
-    border: 3px black;
+    border: 3px solid black;
     border-radius: 10px;
     line-height: 1.6;
     transition: transform 0.2s ease;
 
 }
 .times-card:hover {
-    transform: scale (1.05);
+    transform: scale(1.05);
 }
 .current-day {
     font-weight: 900;
@@ -298,13 +354,26 @@ body.dark-mode {
     color: #f5f5f5;
 
 }
-/* navbar */
-body.dark-mode .nav {
-    background-color: #16213e;
+
+body.dark-mode .logo-img {
+    content: url("Media/Images/Bustling & blooming (2).png");
+    border: 3px solid #414141;
 }
 
-body.dark-mode .nav a {
-    color: #fff;
+body.dark-mode .header {
+    background-color: #1a1a1a;
+}
+ 
+body.dark-mode .header-links a {
+    color: #ddd;
+}
+ 
+body.dark-mode .header-links a:hover {
+    background-color: #333;
+}
+ 
+body.dark-mode .header-links a.current {
+    background: linear-gradient(135deg, #42a5f5, #8e24aa)
 }
 
 /* banner */
@@ -330,7 +399,10 @@ body.dark-mode .why-item {
 body.dark-mode .why-text {
     color: #ddd;
 }
-
+body.dark-mode .learn-more, body.dark-mode .view-more {
+    background: #444;
+    color: #fff;  
+}
 /* buttons */
 body.dark-mode .theme-btn {
     background: #333;
@@ -338,41 +410,121 @@ body.dark-mode .theme-btn {
     border-color: #fff;
 }
 
-body.dark-mode .view-more {
-    background: #444;
-    color: #fff;
-}
-body.dark-mode .times-card {
-    background:#333;
-    color: #fff;
-    border-color: #fff;
+body.dark-mode .review-card, body.dark-mode .times-card{
+  background: #333;
+  color: #fff;
+  border-color: #fff;
 }
 body.dark-mode .current-day {
     color: #fff;
 }
-body.dark-mode .footer {
-  background-color: #16213e;
-
-/*logo*/
-}
-body.dark-mode .logo-img {
-    content: url("../Images/Bustling & blooming (2).png");
-}
-/*banner*/
-body.dark-mode .banner-img {
-  content: url("../Images/pexels-lilartsy-3040705.jpg");
-}
-
 body.dark-mode .section-divider {
   background-color: #fff;
 }
 
-/*footer*/
 .footer {
-    background-color: #ffff80;
-    padding: 20px 40px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #333, #1a1a1a);
+    color: #fff;
     text-align: center;
-    margin-top: 60px;
+    padding: 40px 20px;
+   
 }
 
+.footer p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.slideshow-container {
+    position: relative;
+    margin: 25px auto;
+    max-width: 350px;
+}
+
+.flowers_slides {
+    display: none;
+}
+
+.flowers_slides img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.index {
+    font-size: 14px;
+    color: #ccc;
+    margin: 10px 0;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 7.5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    transition: 0.3s;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.prev {
+    left: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.active {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+/* Test Footer Styles */
+
+
+.footer-link {
+    color: #ccc;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    color: #ffff45;
+    transform: translateY(-2px);
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+body.dark-mode .footer {
+    background: linear-gradient(135deg, #111, #000);
+}
+
+body.dark-mode .footer-link:hover {
+    color: #2d3ac7;
+    transform: translateY(-2px);
+}

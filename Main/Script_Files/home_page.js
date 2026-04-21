@@ -1,6 +1,15 @@
+/*
+SIDENOTE: Due to issues with GitHub on Caoimhe's laptop, I (Oran) uploaded some of Caoimhe's code that she 
+compiled. Thus, any areas of this code marked as being added by me were only done so because Caoimhe couldn't access the GitHub.
+*/
+
 /*carousel*/
+
+var slideIndex = 1;
+
+
 document.querySelectorAll('.carousel').forEach(carousel => {
-  
+ 
   const track = carousel.querySelector('.carousel-track');
   const slides = Array.from(track.children);
   const nextBtn = carousel.querySelector('.next');
@@ -32,7 +41,10 @@ $(document).ready(function() {
   );
 });
 /*opening times*/
-$(document).ready(function () {
+$(document).ready(function() {
+
+  $(".flowers_slides").eq(slideIndex - 1).show();
+
     const days = [
         "sunday",
         "monday",
@@ -50,14 +62,37 @@ $(document).ready(function () {
     $(todayClass).addClass("current-day");
 });
 /*dark mode*/
-    var darkToggle = document.getElementById("darkToggle");
-    if (darkToggle) {
-        darkToggle.addEventListener("click", function(){
-            document.body.classList.toggle("dark-mode");
-            if (document.body.classList.contains("dark-mode")) {
-                this.textContent = "Light Mode";
-            } else {
-                this.textContent = "Dark Mode";
-            }
-        });
+$("#darkToggle").click(function(){
+        $("body").toggleClass("dark-mode");
+        if($("body").hasClass("dark-mode")){
+            $(this).text("Light mode");
+        } else {
+            $(this).text("Dark mode");
+        };
+});
+
+function nextSlide(n) {
+  showSlides(slideIndex += n);
+}
+ //FOOTER SLIDE
+function showSlides(n) {    
+    let i;
+    let slides;
+    slides = document.getElementsByClassName("flowers_slides")
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
+    slides[slideIndex-1].style.display = "block";
+}
+
+// Make toggleFav available globally for onclick
+function toggleFav(btn) {
+    btn.classList.toggle("favorited");
+    if (btn.classList.contains("favorited")) {
+        btn.style.color = "#ff0000";
+    } else {
+        btn.style.color = "#999";
+    }
+}
