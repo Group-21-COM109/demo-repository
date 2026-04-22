@@ -1,6 +1,4 @@
-/*const themeToggle = document.getElementById('themeToggle');
-const toggleIcon  = themeToggle.querySelector('.toggle-icon');
-const toggleLabel = themeToggle.querySelector('.toggle-label');*/
+
 const html        = document.documentElement;
 var slideIndex = 1;
 
@@ -17,28 +15,6 @@ $(document).ready(function() {
   $(".flowers_slides").eq(slideIndex - 1).show();
 });
 
-/*
-function applyTheme(theme) {
-  html.setAttribute('data-theme', theme);
-  localStorage.setItem('bb-theme', theme);
-
-  if (theme === 'dark') {
-    toggleIcon.textContent  = '☀️';
-    toggleLabel.textContent = 'Light Mode';
-  } else {
-    toggleIcon.textContent  = '🌙';
-    toggleLabel.textContent = 'Dark Mode';
-  }
-}
-
-const savedTheme = localStorage.getItem('bb-theme') || 'light';
-applyTheme(savedTheme);
-
-themeToggle.addEventListener('click', () => {
-  const current = html.getAttribute('data-theme');
-  applyTheme(current === 'light' ? 'dark' : 'light');
-});
-*/
 
 function nextSlide(n) { 
   showSlides(slideIndex += n);
